@@ -24,18 +24,18 @@ public class NatureModel {
 		this.title = title;
 	}
 
-	public static List<NatureModel> getObjectList() {
+	public static List<NatureModel> getObjectList() {         //It'll return the datalist.
 
-		List<NatureModel> dataList = new ArrayList<>();
-		int[] images = getImages();
+		List<NatureModel> dataList = new ArrayList<>();   //Variable to store datalist
+		int[] images = getImages();                       //Declared an array for storing images & Calling static func. getImages() to fill the array.
 
-		for (int i = 0; i < images.length; i++) {
-			NatureModel nature = new NatureModel();
-			nature.setImageID(images[i]);
-			nature.setTitle("Picture " + i);
-			dataList.add(nature);
+		for (int i = 0; i < images.length; i++) {         //It'll add elements to Datalist
+			NatureModel nature = new NatureModel();   //Declared a reference variable for the object of NatureModel.
+			nature.setImageID(images[i]);             //It'll call setImageID() func. and Image-ID will get setted
+			nature.setTitle("Picture " + i);          //It'll call setTitle() func. and Title will get setted
+			dataList.add(nature);                     //It'll add elements to list.
 		}
-		return dataList;
+		return dataList;                                  //It will contain list of images and text for each item.
 	}
 
 	private static int[] getImages() {
