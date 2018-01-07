@@ -24,7 +24,7 @@ public class NatureModel {
 		this.title = title;
 	}
 
-	public static List<NatureModel> getObjectList() {         //It'll return the datalist.
+	public static List<NatureModel> getObjectList() {         //It'll return the datalist.It is called by MyActivity.java
 
 		List<NatureModel> dataList = new ArrayList<>();   //Variable to store datalist
 		int[] images = getImages();                       //Declared an array for storing images & Calling static func. getImages() to fill the array.
