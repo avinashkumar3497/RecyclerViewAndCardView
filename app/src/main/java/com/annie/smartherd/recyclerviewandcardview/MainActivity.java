@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-		MyAdapter adapter = new MyAdapter(this, NatureModel.getObjectList());             //declaring the instance of MyAdapter Class, constructor will be called
+		MyAdapter adapter = new MyAdapter(this, NatureModel.getObjectList());             //declaring the instance of MyAdapter Class, constructor will be called. And static member function of NatureModel is called
 		recyclerView.setAdapter(adapter);                                                 //linking adapter with the recyclerView
 
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
