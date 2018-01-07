@@ -14,51 +14,51 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{           //MyAdapter will be inherited from RecyclerView.Adapter
 
 	private List<NatureModel> objectList;
 	private LayoutInflater inflater;
 
-	public MyAdapter(Context context, List<NatureModel> objectList) {
+	public MyAdapter(Context context, List<NatureModel> objectList) {                          //Constructor for MyAdaptor, parameters(context & objectList)-context is the context from which MyAdapter is called & objectList is the list of the data items
 		inflater = LayoutInflater.from(context);
 		this.objectList = objectList;
 	}
 
 	@Override
-	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		View view = inflater.inflate(R.layout.list_item, parent, false);
-		MyViewHolder holder = new MyViewHolder(view);
-		return holder;
+	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {                   //Method implemented for MyAdaptor Class, it is called when a view is created, inside this method, LayoutIn
+		View view = inflater.inflate(R.layout.list_item, parent, false);                   //defined a variable view, it will inflate data-items into list_item
+		MyViewHolder holder = new MyViewHolder(view);                                      //Apply some Brain
+		return holder;                                                                     //ASB
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount() {                                                               //Method implemented for MyAdaptor Class
 		return objectList.size();
 	}
 
 	@Override
-	public void onBindViewHolder(MyViewHolder holder, int position) {
-		NatureModel current = objectList.get(position);
-		holder.setData(current, position);
-		holder.setListeners();
+	public void onBindViewHolder(MyViewHolder holder, int position) {                         //Method implemented for MyAdaptor Class, it is called everytime a new item in the list is to be added.
+		NatureModel current = objectList.get(position);                                   //Using this line, on the basis of the position given, the current item is assigned to "current"(instance of NatureModel class)
+       		holder.setData(current, position);                                                //data is getting combined to the viewholder. Now on the red colored bulb that'll appear there, click on that and click on Create 'setData()'
+		holder.setListeners();                                                            //Have not discussed in the video
 	}
 
-	class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+	class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {         //MyViewHolder will be inherited from RecyclerView.ViewHolder
 
 		private TextView title;
 		private ImageView imgThumb, imgDelete, imgCopy;
 		private int position;
 		private NatureModel currentObject;
 
-		public MyViewHolder(View itemView) {
+		public MyViewHolder(View itemView) {                                                 //Created a contructor matching the super.
 			super(itemView);
-			title       = (TextView)  itemView.findViewById(R.id.tvTitle);
-			imgThumb    = (ImageView) itemView.findViewById(R.id.img_thumb);
-			imgDelete   = (ImageView) itemView.findViewById(R.id.img_delete);
-			imgCopy = (ImageView) itemView.findViewById(R.id.img_copy);
+			title       = (TextView)  itemView.findViewById(R.id.tvTitle);               //Initialisation
+			imgThumb    = (ImageView) itemView.findViewById(R.id.img_thumb);             //Initialisation
+			imgDelete   = (ImageView) itemView.findViewById(R.id.img_delete);            //Initialisation
+			imgCopy = (ImageView) itemView.findViewById(R.id.img_copy);                  //Initialisation
 		}
 
-		public void setData(NatureModel currentObject, int position) {
+		public void setData(NatureModel currentObject, int position) {                       //Created 
 			this.title.setText(currentObject.getTitle());
 			this.imgThumb.setImageResource(currentObject.getImageID());
 			this.position = position;
