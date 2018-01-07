@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-		MyAdapter adapter = new MyAdapter(this, NatureModel.getObjectList());
-		recyclerView.setAdapter(adapter);
+		MyAdapter adapter = new MyAdapter(this, NatureModel.getObjectList());             //declaring the instance of MyAdapter Class, constructor will be called
+		recyclerView.setAdapter(adapter);                                                 //linking adapter with the recyclerView
 
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-		layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-		recyclerView.setLayoutManager(layoutManager);
+		layoutManager.setOrientation(LinearLayoutManager.VERTICAL);                       
+		recyclerView.setLayoutManager(layoutManager);                                     //linking recyclerView with the layoutManager.
 
-		recyclerView.setItemAnimator(new DefaultItemAnimator());
+		recyclerView.setItemAnimator(new DefaultItemAnimator());                          //Setting DefaultItemAnimator for the recyclerView
 	}
 }
